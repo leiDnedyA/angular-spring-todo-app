@@ -10,6 +10,4 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  todoItems = [{id: 1, name: 'Take out trash'}, {id: 2, name: 'Do laundry'}]
-}
+export class AppComponent { }
