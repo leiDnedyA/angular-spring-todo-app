@@ -6,10 +6,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 public class TodoItemController {
@@ -37,11 +34,14 @@ public class TodoItemController {
         return List.of();
     }
 
-    @PostMapping("/todo-items/")
-    public List<TodoItem> post(@RequestBody TodoItem todoItem) {
+    @PostMapping("/todo-items/{id}")
+    public ResponseEntity<List<TodoItem>> post(@RequestBody TodoItem todoItem, @PathVariable String id) {
+        if (db.containsKey(id)) {
+            return new ResponseEntity<List<TodoItem>>(Collections.emptyList(), HttpStatus.CONFLICT);
+        }
         String newKey = String.valueOf(db.size() + 1);
         db.put(newKey, todoItem);
-        return List.of(db.get(newKey));
+        return new ResponseEntity<List<TodoItem>>(List.of(db.get(newKey)), HttpStatusCode.valueOf(200));
     }
 
     @PutMapping("/todo-items/{id}")
