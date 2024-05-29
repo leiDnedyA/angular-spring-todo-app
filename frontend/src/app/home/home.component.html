@@ -1,0 +1,13 @@
+<main class="main">
+  <div class="content">
+    @defer {
+        @for (item of todoItems; track item.id) {
+          <todo-item name="{{item.name}}"/>
+        }
+      } @placeholder {
+        <p>Todo list</p>
+      } @loading (minimum 1s) {
+        <p>Fetching todo list...</p>
+      }
+  </div>
+</main>

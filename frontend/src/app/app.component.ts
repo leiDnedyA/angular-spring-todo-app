@@ -11,5 +11,5 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  todoItems = [{id: 0, title: 'Take out trash'}, {id: 1, title: 'Do laundry'}]
+  todoItems = [{id: 1, name: 'Take out trash'}, {id: 2, name: 'Do laundry'}]
 }

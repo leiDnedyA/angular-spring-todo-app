@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './todo-item.component.css'
 })
 export class TodoItemComponent {
-  @Input() title = '';
+  @Input() name = '';
 }
