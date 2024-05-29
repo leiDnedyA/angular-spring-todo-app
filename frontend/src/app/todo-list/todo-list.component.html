@@ -1,0 +1,10 @@
+@defer {
+  @for (item of todoItems; track item.id) {
+  <todo-item [data]="item" (editEvent)="handleEdit($event)"/>
+  }
+} @placeholder {
+  <p>Todo list</p>
+} @loading (minimum 1s) {
+  <p>Fetching todo list...</p>
+}
+

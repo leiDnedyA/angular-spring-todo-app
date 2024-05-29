@@ -1,1 +1,11 @@
-<p>{{ name }}</p>
+<div>
+  @if (isEditable) {
+  <form (submit)="handleEdit()">
+    <input name="name" type="text" [(ngModel)]="data.name">
+    <input type="submit" value="done">
+  </form>
+  } @else {
+  <p>{{ data.name }}</p>
+  <button (click)="toggleEditable()">edit</button>
+  }
+</div>
